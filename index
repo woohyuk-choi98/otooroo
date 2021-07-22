@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>인파워</title>
+<link rel="stylesheet" href="http://inpower.seeart.kr/theme/pancake/css/default_shop.css?ver=191202">
+<link rel="stylesheet" href="http://inpower.seeart.kr/theme/pancake/skin/shop/basic/style.css?ver=191202">
+<link rel="stylesheet" href="http://inpower.seeart.kr/theme/pancake/skin/latest/main_notice/style.css?ver=191202">
+<!--[if lte IE 8]>
+<script src="http://inpower.seeart.kr/js/html5.js"></script>
+<![endif]-->
+<script>
+// 자바스크립트에서 사용하는 전역변수 선언
+var g5_url       = "http://inpower.seeart.kr";
+var g5_bbs_url   = "http://inpower.seeart.kr/bbs";
+var g5_is_member = "";
+var g5_is_admin  = "";
+var g5_is_mobile = "";
+var g5_bo_table  = "";
+var g5_sca       = "";
+var g5_editor    = "";
+var g5_cookie_domain = "";
+var g5_shop_url = "http://inpower.seeart.kr/shop";
+var g5_theme_shop_url = "http://inpower.seeart.kr/theme/pancake/shop";
+</script>
+<script src="http://inpower.seeart.kr/js/jquery-1.8.3.min.js"></script>
+<script src="http://inpower.seeart.kr/js/jquery.shop.menu.js?ver=191202"></script>
+<script src="http://inpower.seeart.kr/js/common.js?ver=191202"></script>
+<script src="http://inpower.seeart.kr/js/wrest.js?ver=191202"></script>
+<script src="http://inpower.seeart.kr/js/placeholders.min.js"></script>
+<link rel="stylesheet" href="http://inpower.seeart.kr/js/font-awesome/css/font-awesome.min.css">
+<script src="http://inpower.seeart.kr/js/jquery.bxslider.js?ver=191202"></script>
+</head>
+<body>
+
+
+<!-- 상단 시작 { -->
+<div id="hd">
+    <h1 id="hd_h1">인파워</h1>
+    <div id="skip_to_container"><a href="#container">본문 바로가기</a></div>
+
+    
+<!-- 팝업레이어 시작 { -->
+<div id="hd_pop">
+    <h2>팝업레이어 알림</h2>
+
+<span class="sound_only">팝업레이어 알림이 없습니다.</span></div>
+
+<script>
+$(function() {
+    $(".hd_pops_reject").click(function() {
+        var id = $(this).attr('class').split(' ');
+        var ck_name = id[1];
+        var exp_time = parseInt(id[2]);
+        $("#"+id[1]).css("display", "none");
+        set_cookie(ck_name, 1, exp_time, g5_cookie_domain);
+    });
+    $('.hd_pops_close').click(function() {
+        var idb = $(this).attr('class').split(' ');
+        $('#'+idb[1]).css('display','none');
+    });
+    $("#hd").css("z-index", 1000);
+});
+</script>
+<!-- } 팝업레이어 끝 -->
+    <div id="hd_wrapper">
+        <div id="logo"><a href="http://inpower.seeart.kr/shop/"><img src="http://inpower.seeart.kr/theme/pancake/img/logo.png" alt="인파워"></a></div>
+        <div>
+
+        <div id="hd_tnb">
+                        <a href="http://inpower.seeart.kr/bbs/login.php">로그인</a>
+            <a href="http://inpower.seeart.kr/bbs/register.php">회원가입</a>
+            
+            
+        </div> 
+        <nav id="gnb">
+            <h2>메인메뉴</h2>
+            <div class="gnb_wrap">
+                <ul id="gnb_1dul">
+                                        <li class="gnb_1dli " style="z-index:999">
+                        <a href="/company/01.php" target="_self" class="gnb_1da">IN-Power</a>
+                        <ul class="gnb_2dul">
+                            <li class="gnb_2dli"><a href="/company/01.php" target="_self" class="gnb_2da">회사소개</a></li>
+                                                    <li class="gnb_2dli"><a href="/company/02.php" target="_self" class="gnb_2da">대표인사말</a></li>
+                                                    <li class="gnb_2dli"><a href="/company/03.php" target="_self" class="gnb_2da">강사소개</a></li>
+                                                    <li class="gnb_2dli"><a href="/company/04.php" target="_self" class="gnb_2da">오시는 길</a></li>
+                        </ul>
+                    </li>
+                                        <li class="gnb_1dli " style="z-index:998">
+                        <a href="/shop/list.php?ca_id=1010" target="_self" class="gnb_1da">EDUCATION</a>
+                        <ul class="gnb_2dul">
+                            <li class="gnb_2dli"><a href="/shop/list.php?ca_id=1010" target="_self" class="gnb_2da">정규과정</a></li>
+                                                    <li class="gnb_2dli"><a href="/shop/list.php?ca_id=2010" target="_self" class="gnb_2da">온라인</a></li>
+                                                    <li class="gnb_2dli"><a href="/shop/list.php?ca_id=3010" target="_self" class="gnb_2da">오프라인</a></li>
+                                                    <li class="gnb_2dli"><a href="/bbs/write.php?bo_table=coaching&sca=개인코칭" target="_self" class="gnb_2da">개인코칭</a></li>
+                                                    <li class="gnb_2dli"><a href="/bbs/write.php?bo_table=coaching&sca=소그룹코칭" target="_self" class="gnb_2da">소그룹코칭</a></li>
+                        </ul>
+                    </li>
+                                        <li class="gnb_1dli " style="z-index:997">
+                        <a href="/consuting/01.php" target="_self" class="gnb_1da">CONSULTING</a>
+                        <ul class="gnb_2dul">
+                            <li class="gnb_2dli"><a href="/consuting/01.php" target="_self" class="gnb_2da">개원컨설팅</a></li>
+                                                    <li class="gnb_2dli"><a href="/consuting/02.php" target="_self" class="gnb_2da">확장이전컨설팅</a></li>
+                                                    <li class="gnb_2dli"><a href="/consuting/03.php" target="_self" class="gnb_2da">시스템컨설팅</a></li>
+                                                    <li class="gnb_2dli"><a href="/consuting/04.php" target="_self" class="gnb_2da">병원HR컨설팅</a></li>
+                                                    <li class="gnb_2dli"><a href="/consuting/05.php" target="_self" class="gnb_2da">내부마케팅</a></li>
+                                                    <li class="gnb_2dli"><a href="/consuting/06.php" target="_self" class="gnb_2da">외부마케팅</a></li>
+                        </ul>
+                    </li>
+                                        <li class="gnb_1dli " style="z-index:996">
+                        <a href="/bbs/board.php?bo_table=qa&sca=컨설팅 및 교육 문의" target="_self" class="gnb_1da">COMMUNITY</a>
+                        <ul class="gnb_2dul">
+                            <li class="gnb_2dli"><a href="/bbs/board.php?bo_table=qa&sca=컨설팅 및 교육 문의" target="_self" class="gnb_2da">문의하기</a></li>
+                                                    <li class="gnb_2dli"><a href="/bbs/board.php?bo_table=notice" target="_self" class="gnb_2da">공지사항</a></li>
+                        </ul>
+                    </li>
+                                    </ul>
+            </div>
+        </nav>  
+         
+        </div>  
+
+    </div>
+    
+</div>
+<div class="main_banner"> 
+    <div class="main_banner_wrap">
+        <div class="main_banner03">        
+            <div class="main_banner01">
+                <span><b>병원전문 컨설팅</b> 혁신기업</span><br>
+                세상을 변화시킬 <b>IN-Power</b>
+            </div>
+            <div class="main_banner02">
+                <span>사람이 중심이 되는 병원 내부 시스템 혁신기업</span><br>
+                내부(IN)과 사람인(人) 그리고 힘(Power)가 결합되어 사람이 중심이 되는 병원전문 교육컨설팅
+            </div>
+        </div>
+    </div>         
+</div>
+
+
+<div id="wrapper">
+    
+    <!-- 콘텐츠 시작 { -->
+    <div id="container" class="container">
+        <div id="sub_">    
+<!-- 메인이미지 시작 { -->
+
+<!-- } 메인이미지 끝 -->
+<div class="row">
+    <div class="idx_wr main01">
+        <div class="main01_01">
+            IN-Power Consulting
+        </div>
+        <div class="main01_02">
+            <b>인파워 컨설팅</b>만의 특별함
+        </div>
+        <div class="main01_03">
+            IN-Power는 병원컨설팅 경력 10년 이상 된 전문 컨설턴트들의 특별한 노하우로<br>
+            각 병원의 문제를 정확히 분석하고 차별화된 병원별 맞춤 솔루션을 제공하여<br>
+            빠른 성과도출을 하는 병원전문 컨설팅 회사로 원장님 및 직원들에게 만족도가 높은 기업입니다.
+        </div>
+        <div class="main01_04">
+            <div>
+                <img src="http://inpower.seeart.kr/theme/pancake/img/main01_01.png"><br>
+                <span>10년 이상 경력<br>베테랑 컨설팅</span>
+            </div>
+            <div>
+                <img src="http://inpower.seeart.kr/theme/pancake/img/main01_02.png"><br>
+                <span>분야별 시스템<br>전문 컨설턴트 배정</span>
+            </div>
+            <div>
+                <img src="http://inpower.seeart.kr/theme/pancake/img/main01_03.png"><br>
+                <span>차별화된<br>병원 맞춤 솔루션</span>
+            </div>
+            <div>
+                <img src="http://inpower.seeart.kr/theme/pancake/img/main01_04.png"><br>
+                <span>빠른 성과 도출<br>시스템</span>
+            </div>
+            <div>
+                <img src="http://inpower.seeart.kr/theme/pancake/img/main01_05.png"><br>
+                <span>빠른 결과 보고<br>시스템</span>
+            </div>
+
+            
+        </div>
+    </div>
+    <div class="main02">
+        <div class="main02_01">
+            <a href="http://inpower.seeart.kr/consuting/01.php">
+            <div class="main02_03">
+                인파워 컨설팅
+            </div>
+            <div class="main02_04">
+                IN-Power Consulting
+            </div>
+            <img class="main02_07" src="http://inpower.seeart.kr/theme/pancake/img/main02_01.png">
+            <div class="main02_05">
+                <div class="main02_05_01">
+                    인파워 컨설팅
+                </div>
+                <div class="main02_05_02">
+                    IN-Power Consulting
+                </div>
+                <div class="main02_05_03">
+                    병원경영에 있어 가장 중요한 조직관리와 매출관리 등  <br>
+                    내부 시스템을 점검하고 교육 및 피드백을 통해 <br>
+                    효율적인 시스템을 적용하여 빠르고 지속적인 성과를 <br>
+                    낼수 있도록 돕는 병원내부 시스템전문기업
+
+                </div>
+                <div class="main02_05_04">
+                    더 알아보기&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><img src="http://inpower.seeart.kr/theme/pancake/img/main02_05.png"></a>
+                </div>              
+            </div>
+            </a>
+        </div>
+        <div class="main02_02">
+            <a href="http://inpower.seeart.kr/shop/list.php?ca_id=1010">
+            <div class="main02_03">
+                인파워 교육원
+            </div>
+            <div class="main02_04">
+                IN-Power Education
+            </div>
+            <img class="main02_07" src="http://inpower.seeart.kr/theme/pancake/img/main02_02.png">
+            <div class="main02_06">
+                <div class="main02_06_01">
+                    인파워 교육원
+                </div>
+                <div class="main02_06_02">
+                    IN-Power Education
+                </div>
+                <div class="main02_06_03">
+                    인파워에듀케이션 <br>
+                    조직구성원의 실력이 병원의 미래입니다. 병원내부를 구성하는<br>
+                    조직구성원들에게 비전을 제시하고 교육을 통해 성장과 성공을 돕는 병원인재양성 전문기업
+
+                </div>
+                <div class="main02_06_04">
+                    더 알아보기&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><img src="http://inpower.seeart.kr/theme/pancake/img/main02_05.png"></a>
+                </div>              
+            </div>
+            </a>
+        </div>
+    </div>
+    <div class="main03">
+        
+<div class="main_notice">
+    <div class="main_notice01">
+        <div class="main_notice01_01">
+            공지사항        </div>
+        <div class="main_notice01_02">
+            인파워의 새로운 공지사항을<br>지금 바로 확인해보세요!
+        </div>
+        <img src="http://inpower.seeart.kr/theme/pancake/img/main_notice_bell.png" style="float: right;">
+
+    </div>
+    <div class="main_notice02">
+        <ul>
+                    <li>
+                <span class="lt_num">01</span><a href="http://inpower.seeart.kr/bbs/board.php?bo_table=notice&amp;wr_id=4"> 교육 선진 기업 인파워에서 새로운 홈페이지 런칭!</a>                <br>
+                <p>가치를 거선의 이것이야말로 수 사라지지 노래하며 풍부하게 무엇을 있다. 크고 산야에 아니한 뿐이다.… </p>
+
+                <span class="lt_date">2021-03-03</span>
+            </li>
+                    <li>
+                <span class="lt_num">02</span><a href="http://inpower.seeart.kr/bbs/board.php?bo_table=notice&amp;wr_id=3"> 교육 선진 기업 인파워에서 새로운 홈페이지 런칭!</a>                <br>
+                <p>가치를 거선의 이것이야말로 수 사라지지 노래하며 풍부하게 무엇을 있다. 크고 산야에 아니한 뿐이다.… </p>
+
+                <span class="lt_date">2021-03-03</span>
+            </li>
+                    <li>
+                <span class="lt_num">03</span><a href="http://inpower.seeart.kr/bbs/board.php?bo_table=notice&amp;wr_id=2"> 교육 선진 기업 인파워에서 새로운 홈페이지 런칭!</a>                <br>
+                <p>가치를 거선의 이것이야말로 수 사라지지 노래하며 풍부하게 무엇을 있다. 크고 산야에 아니한 뿐이다.… </p>
+
+                <span class="lt_date">2021-03-03</span>
+            </li>
+                    <li>
+                <span class="lt_num">04</span><a href="http://inpower.seeart.kr/bbs/board.php?bo_table=notice&amp;wr_id=1"> 교육 선진 기업 인파워에서 새로운 홈페이지 런칭!</a>                <br>
+                <p>가치를 거선의 이것이야말로 수 사라지지 노래하며 풍부하게 무엇을 있다. 크고 산야에 아니한 뿐이다. </p>
+
+                <span class="lt_date">2021-03-03</span>
+            </li>
+                        </ul>
+    </div>  
+
+</div>
+    </div>
+    <div class="idx_wr main04">
+        <div class="main04_03">
+            <div class="main_title">오시는 길</div>
+            <div class="main04_01">
+                <span><img src="http://inpower.seeart.kr/theme/pancake/img/main04_01.png">&nbsp;&nbsp;<b>주소</b>&nbsp;&nbsp;서울 서초구 효령로 18</span><br>
+                <span><img src="http://inpower.seeart.kr/theme/pancake/img/main04_02.png">&nbsp;&nbsp;<b>문의전화</b>&nbsp;&nbsp;010-3434-3434</span>
+            </div>
+        </div>
+        <div class="main04_02">
+            <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+            <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd2WVRj9xb4HpYvjNLi5yRoz7CV-2pEFY"></script>
+
+            <div id="map_ma" style="width:684px; height:430px; clear:both;"></div>
+            <script type="text/javascript">
+                    $(document).ready(function() {
+                        var myLatlng = new google.maps.LatLng(37.47712645109031,126.98708835633788); // 위치값 위도 경도
+                var Y_point			= 37.47712645109031;		// Y 좌표
+                var X_point			= 126.98708835633788;		// X 좌표
+                var zoomLevel		= 14;				// 지도의 확대 레벨 : 숫자가 클수록 확대정도가 큼
+                var markerTitle		= "인파워";		// 현재 위치 마커에 마우스를 오버을때 나타나는 정보
+                var markerMaxWidth	= 300;				// 마커를 클릭했을때 나타나는 말풍선의 최대 크기
+
+            // 말풍선 내용
+                var contentString	= '<div>' +
+                '<h2>인파워</h2>'+
+                '<p>서울 서초구 효령로 18</p>' +
+                
+                '</div>';
+                var myLatlng = new google.maps.LatLng(Y_point, X_point);
+                var mapOptions = {
+                                    zoom: zoomLevel,
+                                    center: myLatlng,
+                                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                                }
+                var map = new google.maps.Map(document.getElementById('map_ma'), mapOptions);
+                var marker = new google.maps.Marker({
+                                                        position: myLatlng,
+                                                        map: map,
+                                                        title: markerTitle
+                });
+                var infowindow = new google.maps.InfoWindow(
+                                                            {
+                                                                content: contentString,
+                                                                maxWizzzdth: markerMaxWidth
+                                                            }
+                        );
+                google.maps.event.addListener(marker, 'click', function() {
+                    infowindow.open(map, marker);
+                });
+            });
+		    </script>
+        </div>  
+    </div>
+    <div class="idx_wr main05">
+        <div class="main05_01">
+            <div class="main_title">문의 및 상담</div>
+        </div>
+        <div class="main05_02">
+            <div class="main05_03">
+                <a href="https://pf.kakao.com/_xjVRdT" target="_blank">
+                <img src="http://inpower.seeart.kr/theme/pancake/img/main05_01.png">&nbsp;&nbsp;<b>카카오톡</b>으로 문의하기
+                </a>
+            </div>
+            <div class="main05_03">
+                <a href='tel:010-3396-8565'>
+                <img src="http://inpower.seeart.kr/theme/pancake/img/main05_02.png">&nbsp;&nbsp;<b>전화 및 문자</b> 상담
+                </a>
+            </div>
+        </div>  
+    </div>
+</div>
+<script>
+$("#container").removeClass("container").addClass("idx-container");
+$("body").addClass("index");
+</script>
+
+        </div>
+    </div>
+    <!-- } 콘텐츠 끝 -->
+
+<!-- 하단 시작 { -->
+</div>
+   
+
+<div id="ft">
+    <div class="ft_bar">
+        <div class="ft_wr">
+            제휴 문의
+        </div>
+    </div>
+    <div class="ft_wr">
+        <img src="http://inpower.seeart.kr/theme/pancake/img/foot_logo.png">
+        <div class="ft_ul">
+            <div>
+                <b>인파워 소개</b><br><br>
+                <span><a href="http://inpower.seeart.kr/company/01.php">회사소개</a></span><br>
+                <span><a href="http://inpower.seeart.kr/company/02.php">대표인사말</a></span><br>
+                <span><a href="http://inpower.seeart.kr/company/03.php">강사소개</a></span><br>
+                <span><a href="http://inpower.seeart.kr/company/04.php">오시는 길</a></span><br>
+            </div>
+            <div>
+                <b>인파워교육원</b><br><br>
+                <span><a href="http://inpower.seeart.kr/shop/list.php?ca_id=1010">정규과정</a></span><br>
+                <span><a href="http://inpower.seeart.kr/shop/list.php?ca_id=2010">온라인</a></a></span><br>
+                <span><a href="http://inpower.seeart.kr/shop/list.php?ca_id=3010">오프라인</a></span><br>
+                <span><a href="http://inpower.seeart.kr/shop/list.php?ca_id=4010">개인코칭</a></span><br>
+                <span><a href="http://inpower.seeart.kr/shop/list.php?ca_id=5010">소그룹코칭</a></span><br>
+            </div>
+            <div>
+                <b>인파워컨설팅</b><br><br>
+                <span><a href="http://inpower.seeart.kr/consuting/01.php">개원컨설팅</a></span><br>
+                <span><a href="http://inpower.seeart.kr/consuting/02.php">확장이전컨설팅</a></span><br>
+                <span><a href="http://inpower.seeart.kr/consuting/03.php">시스템컨설팅</a></span><br>
+                <span><a href="http://inpower.seeart.kr/consuting/04.php">병원HR컨설팅</a></span><br>
+                <span><a href="http://inpower.seeart.kr/consuting/05.php">내부마케팅</a></span><br>
+                <span><a href="http://inpower.seeart.kr/consuting/06.php">외부마케팅</a></span><br>
+            </div>
+            <div>
+                <b>커뮤니티</b><br><br>
+                <span><a href="http://inpower.seeart.kr/bbs/board.php?bo_table=qa">문의하기</a></span><br>
+                <span><a href="http://inpower.seeart.kr/bbs/board.php?bo_table=notice">공지사항</a></span><br>
+            </div>
+        </div> 
+
+
+        <a href="#" id="top_btn" class="top_btn01"><img src="http://inpower.seeart.kr/theme/pancake/img/top_btn01.png"><span class="sound_only">상단으로</span></a>
+        <a href="#" id="top_btn" class="top_btn02"><img src="http://inpower.seeart.kr/theme/pancake/img/top_btn02.png"><span class="sound_only">상단으로</span></a>
+        <a href="#" id="top_btn" class="top_btn03"><img src="http://inpower.seeart.kr/theme/pancake/img/top_btn03.png"><span class="sound_only">상단으로</span></a>
+    </div>
+    <!-- <div class="ft_copy">Copyright &copy; 2001-2013 회사명. All Rights Reserved.</div> -->
+
+
+</div>
+
+
+<script src="http://inpower.seeart.kr/js/sns.js"></script>
+<!-- } 하단 끝 -->
+
+
+
+<!-- ie6,7에서 사이드뷰가 게시판 목록에서 아래 사이드뷰에 가려지는 현상 수정 -->
+<!--[if lte IE 7]>
+<script>
+$(function() {
+    var $sv_use = $(".sv_use");
+    var count = $sv_use.length;
+
+    $sv_use.each(function() {
+        $(this).css("z-index", count);
+        $(this).css("position", "relative");
+        count = count - 1;
+    });
+});
+</script>
+<![endif]-->
+
+</body>
+</html>
